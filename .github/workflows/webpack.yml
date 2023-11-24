@@ -28,6 +28,11 @@ jobs:
           bun install
           bunx parcel build --public-url /sourdough-roll-schedule
 
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: './dist/'
+
   deploy:
     environment:
       name: github-pages
