@@ -24,12 +24,10 @@ import Header from './ui/Header';
 
 const root = document.getElementById('app');
 createRoot(root).render(
-	<React.StrictMode>
-		<ThemeProvider theme={theme}>
-			<CssBaseline />
-			<App />
-		</ThemeProvider>
-	</React.StrictMode>,
+	<ThemeProvider theme={theme}>
+		<CssBaseline />
+		<App />
+	</ThemeProvider>,
 );
 
 function App() {

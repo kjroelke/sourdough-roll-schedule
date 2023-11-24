@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box, List, Paper, Typography } from '@mui/material';
-import NoteCard from '../components/NoteCard';
 
 export default function Notes({ notes }: { notes: string[] }) {
 	return (
