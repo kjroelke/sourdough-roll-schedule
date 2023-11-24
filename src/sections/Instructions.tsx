@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { Box, Typography } from '@mui/material';
 import dayjs from 'dayjs';
-const instructions: Instructions[] = [];
 
-export type Instructions = {
+type Instructions = {
 	time: string;
 	instruction: string;
 	description: string;
 };
+
 export default function Instructions({ endTime, readyTime }) {
 	const [instructions, setInstructions] = React.useState<Instructions[]>([
 		{
