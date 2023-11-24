@@ -1,4 +1,4 @@
-name: NodeJS with Webpack
+name: Bundle with Bun
 
 on:
   push:
@@ -23,3 +23,9 @@ jobs:
       run: |
         bun install
         bunx parcel build --public-url /sourdough-roll-schedule
+        
+     - name: Deploy to GH Pages 🚀
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: public
