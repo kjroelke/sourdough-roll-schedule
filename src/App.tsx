@@ -34,6 +34,15 @@ function App() {
 	const [dateTime, setDateTime] = useState(dayjs().add(12, 'h'));
 	const [readyTime, setReadyTime] = useState(12);
 	const [servings, setServings] = useState(12);
+
+	function handleChange(ev,callback) {
+		if (NaN === Number(ev.target.value)) {
+			return;
+		} else {
+			callback(Number(ev.target.value));
+		}
+	}
+	
 	return (
 		<Container maxWidth="lg">
 			<Header
@@ -75,14 +84,14 @@ function App() {
 									id="ready-time"
 									prompt="How long does your starter take to be ready?"
 									value={readyTime}
-									onChange={(e) => setReadyTime(Number(e.target.value))}
+									onChange={(ev) => (handleChange(ev,setReadyTime)}
 								/>
 								<InputField
 									label="Servings"
 									id="servings"
 									prompt="Number of Servings"
 									value={servings}
-									onChange={(e) => setServings(Number(e.target.value))}
+									onChange={(ev) => (handleChange(ev,setReadyTime)}
 								/>
 							</Box>
 						</Box>
