@@ -20,7 +20,7 @@ import Instructions from './sections/Instructions';
 import InputField from './components/InputField';
 import BasicDateTimePicker from './components/DateTimePicker';
 import Header from './ui/Header';
-import ToggleColorMode from './components/ColorToggle';
+import ToggleColorMode from './components/ColorContext';
 
 const root = document.getElementById('app');
 
