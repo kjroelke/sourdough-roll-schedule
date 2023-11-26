@@ -1,15 +1,7 @@
 // 3rd Party Imports
 import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import {
-	Box,
-	Container,
-	Grid,
-	Paper,
-	Typography,
-	useTheme,
-} from '@mui/material';
-import { ThemeProvider } from '@emotion/react';
+import { Box, Container, Grid, Paper, Typography } from '@mui/material';
 import dayjs from 'dayjs';
 
 // Components
