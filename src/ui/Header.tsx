@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Box, Link, Typography } from '@mui/material';
+import { ColorModeContext } from '../components/ColorContext';
+import ColorToggle from '../components/ColorToggle';
 
 export default function Header({
 	headline,
@@ -14,6 +16,7 @@ export default function Header({
 }) {
 	return (
 		<>
+			{/* <ColorToggle /> */}
 			<Typography variant="h2" component="h1">
 				{headline}
 			</Typography>

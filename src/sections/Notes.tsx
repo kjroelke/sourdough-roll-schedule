@@ -1,9 +1,15 @@
 import React from 'react';
 import { Box, List, Paper, Typography } from '@mui/material';
 
-export default function Notes({ notes }: { notes: string[] }) {
+export default function Notes({
+	notes,
+	sx = {},
+}: {
+	notes: string[];
+	sx?: object;
+}) {
 	return (
-		<Box className="notes" component="section">
+		<Box className="notes" component="section" sx={sx}>
 			<Typography variant="h4" component="h2">
 				Notes
 			</Typography>
@@ -16,7 +22,11 @@ export default function Notes({ notes }: { notes: string[] }) {
 					gridTemplateColumns: 'repeat(auto-fill,minmax(175px,250px))',
 				}}>
 				{notes.map((note, index) => (
-					<Paper elevation={3} key={index} sx={{ padding: '2rem' }}>
+					<Paper
+						variant="elevation"
+						elevation={3}
+						key={index}
+						sx={{ padding: '2rem' }}>
 						{note}
 					</Paper>
 				))}

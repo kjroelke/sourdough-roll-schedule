@@ -1,25 +1,27 @@
 {
-	"name": "sourdough-roll-schedule",
-	"type": "module",
-	"version": "1.0.0",
-	"source": "src/index.html",
-	"browserslist": "> 0.5%, last 2 versions, not dead",
-	"scripts": {
-		"start": "parcel ",
-		"build": "parcel build --public-url ./"
-	},
-	"dependencies": {
-		"@emotion/react": "^11.11.1",
-		"@emotion/styled": "^11.11.0",
-		"@fontsource-variable/playfair-display": "^5.0.18",
-		"@mui/material": "^5.14.18",
-		"@mui/x-date-pickers": "^6.18.2",
-		"dayjs": "^1.11.10",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0"
-	},
-	"devDependencies": {
-		"eslint-config-react-app": "^7.0.1",
-		"parcel": "^2.10.3"
-	}
+  "name": "sourdough-roll-schedule",
+  "type": "module",
+  "version": "1.0.0",
+  "source": "src/index.html",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "scripts": {
+    "start": "parcel ",
+    "build": "parcel build --public-url ./"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@fontsource-variable/playfair-display": "^5.0.18",
+    "@mui/icons-material": "^5.14.18",
+    "@mui/lab": "^5.0.0-alpha.153",
+    "@mui/material": "^5.14.18",
+    "@mui/x-date-pickers": "^6.18.2",
+    "dayjs": "^1.11.10",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "eslint-config-react-app": "^7.0.1",
+    "parcel": "^2.10.3"
+  }
 }

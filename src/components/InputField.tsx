@@ -22,6 +22,7 @@ export default function BasicTextFields({
 			component="form"
 			sx={{
 				'& > :not(style)': { m: 1, width: '25ch' },
+				'& .MuiTextField-root': { margin: 0 },
 			}}
 			noValidate
 			autoComplete="off">
