@@ -4,15 +4,14 @@ import { createRoot } from 'react-dom/client';
 import {
 	Box,
 	Container,
-	CssBaseline,
 	Grid,
 	Paper,
 	Typography,
+	useTheme,
 } from '@mui/material';
 import { ThemeProvider } from '@emotion/react';
 import dayjs from 'dayjs';
 
-import { theme } from './utilities/theme';
 // Components
 import Ingredients from './sections/Ingredients';
 import Meta from './sections/Meta';
@@ -21,13 +20,14 @@ import Instructions from './sections/Instructions';
 import InputField from './components/InputField';
 import BasicDateTimePicker from './components/DateTimePicker';
 import Header from './ui/Header';
+import ToggleColorMode from './components/ColorToggle';
 
 const root = document.getElementById('app');
+
 createRoot(root).render(
-	<ThemeProvider theme={theme}>
-		<CssBaseline />
+	<ToggleColorMode>
 		<App />
-	</ThemeProvider>,
+	</ToggleColorMode>,
 );
 
 function App() {
@@ -35,16 +35,17 @@ function App() {
 	const [readyTime, setReadyTime] = useState(12);
 	const [servings, setServings] = useState(12);
 
-	function handleChange(ev,callback) {
-		if (NaN === Number(ev.target.value)) {
-			return;
+	function handleChange(ev, callback) {
+		const input = Number(ev.target.value);
+		if (Number.isNaN(input)) {
+			callback((prev) => prev);
 		} else {
-			callback(Number(ev.target.value));
+			callback(input);
 		}
 	}
-	
+
 	return (
-		<Container maxWidth="lg">
+		<Container maxWidth="lg" sx={{ marginY: 5 }}>
 			<Header
 				headline="Soft Sourdough Dinner Rolls Recipe"
 				subheadline="Soft sourdough dinner rolls are everything you ever dreamed of! These amazing, pull-apart dinner rolls are fluffy, buttery, and so easy to make."
@@ -58,7 +59,7 @@ function App() {
 				display="flex"
 				alignItems="flex-start"
 				component="section">
-				<Grid md={8}>
+				<Grid item md={8}>
 					<Box
 						sx={{
 							display: 'flex',
@@ -78,20 +79,26 @@ function App() {
 								value={dateTime}
 								setValue={setDateTime}
 							/>
-							<Box sx={{ display: 'flex', flexDirection: 'row' }}>
+							<Box
+								sx={{
+									display: 'flex',
+									flexDirection: 'row',
+									justifyContent: 'space-between',
+									marginY: 2,
+								}}>
 								<InputField
 									label="Ready Time"
 									id="ready-time"
 									prompt="How long does your starter take to be ready?"
 									value={readyTime}
-									onChange={(ev) => (handleChange(ev,setReadyTime)}
+									onChange={(ev) => handleChange(ev, setReadyTime)}
 								/>
 								<InputField
 									label="Servings"
 									id="servings"
 									prompt="Number of Servings"
 									value={servings}
-									onChange={(ev) => (handleChange(ev,setReadyTime)}
+									onChange={(ev) => handleChange(ev, setServings)}
 								/>
 							</Box>
 						</Box>
@@ -104,8 +111,12 @@ function App() {
 					</Box>
 					<Instructions readyTime={readyTime} endTime={dateTime} />
 				</Grid>
-				<Grid md={4} sx={{ position: 'sticky', top: '5%' }} component="aside">
-					<Paper elevation={2} sx={{ padding: '2rem' }}>
+				<Grid
+					item
+					md={4}
+					sx={{ position: 'sticky', top: '5%' }}
+					component="aside">
+					<Paper variant="elevation" elevation={6} sx={{ padding: '2rem' }}>
 						<Box className="equipment">
 							<Typography variant="h4" component="h2">
 								Equipment
@@ -121,6 +132,7 @@ function App() {
 				</Grid>
 			</Grid>
 			<Notes
+				sx={{ marginY: 10 }}
 				notes={[
 					`It's very important to take the ambient temperature of your kitchen
 						into account when working with sourdough. Our recipes are tested in
@@ -136,6 +148,13 @@ function App() {
 					baked in a muffin tin for 23-25 minutes.`,
 				]}
 			/>
+			<footer
+				style={{ textAlign: 'center', paddingTop: 10, paddingBottom: 10 }}>
+				Created by K.J. Roelke for fun. See more on{' '}
+				<a href="https://github.com/kjroelke/sourdough-roll-schedule#readme">
+					Github.
+				</a>
+			</footer>
 		</Container>
 	);
 }

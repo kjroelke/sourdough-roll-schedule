@@ -24,8 +24,8 @@ export default function Meta({ servings, sx }) {
 				...sx,
 			}}>
 			<Paper
-				elevation={1}
-				variant="outlined"
+				elevation={2}
+				variant="elevation"
 				sx={{
 					display: 'grid',
 					gridTemplateColumns: 'repeat(2,1fr)',

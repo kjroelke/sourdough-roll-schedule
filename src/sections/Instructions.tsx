@@ -1,6 +1,16 @@
 import React, { useEffect } from 'react';
-import { Box, Typography } from '@mui/material';
 import dayjs from 'dayjs';
+
+import { Box, Typography } from '@mui/material';
+import Timeline from '@mui/lab/Timeline';
+import TimelineItem from '@mui/lab/TimelineItem';
+import TimelineSeparator from '@mui/lab/TimelineSeparator';
+import TimelineConnector from '@mui/lab/TimelineConnector';
+import TimelineContent from '@mui/lab/TimelineContent';
+import TimelineDot from '@mui/lab/TimelineDot';
+import TimelineOppositeContent, {
+	timelineOppositeContentClasses,
+} from '@mui/lab/TimelineOppositeContent';
 
 type Instructions = {
 	time: string;
@@ -93,21 +103,25 @@ export default function Instructions({ endTime, readyTime }) {
 			<Typography variant="h4" component="h2">
 				Instructions
 			</Typography>
-			<ol className="instructions">
+			<Timeline
+				sx={{
+					[`& .${timelineOppositeContentClasses.root}`]: {
+						flex: 0.2,
+					},
+				}}>
 				{instructions.map(({ time, instruction, description }, index) => (
-					<Typography component="li" className="instructions__item" key={index}>
-						<Typography
-							variant="h5"
-							component="span"
-							sx={{ letterSpacing: '2px' }}>{`${dayjs(time).format(
-							'h:mm a',
-						)} ${instruction}`}</Typography>
-						<Typography paragraph={true} variant="body1">
-							{` ${description}`}
-						</Typography>
-					</Typography>
+					<TimelineItem key={index}>
+						<TimelineOppositeContent color="text.primary">
+							{`${dayjs(time).format('h:mm a')} ${instruction}`}
+						</TimelineOppositeContent>
+						<TimelineSeparator>
+							<TimelineDot color="secondary" />
+							<TimelineConnector color="primary" />
+						</TimelineSeparator>
+						<TimelineContent>{description}</TimelineContent>
+					</TimelineItem>
 				))}
-			</ol>
+			</Timeline>
 		</Box>
 	);
 }
