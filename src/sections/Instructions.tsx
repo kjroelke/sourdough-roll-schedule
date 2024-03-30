@@ -48,7 +48,7 @@ export default function Instructions({ endTime, readyTime }) {
 			time: endTime.subtract(3, 'hours'), // -3 hours
 			instruction: 'Shape and Second rise',
 			description:
-				'Turn the dough out onto a floured surface and divide it into 12 pieces, approximately 65 grams each. Shape each piece into a ball by gathering up the sides and pinching them together. Turn the dough over so that the seam side is down on the work surface and gently form a smooth ball. Arrange them in a lightly greased glass baking dish. Cover the dish with a tea towel and let rise for 3-4 hours.',
+				'Turn the dough out onto a floured surface and divide it into 12 pieces, approximately 65 grams each. Shape each piece into a ball by gathering up the sides and pinching them together. Turn the dough over so that the seam side is down on the work surface and gently form a smooth ball. Arrange them in a lightly greased glass baking dish. (See Notes) Cover the dish with a tea towel and let rise for 3-4 hours.',
 		},
 		{
 			time: endTime,
