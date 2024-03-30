@@ -37,7 +37,9 @@ function App() {
 	}
 
 	return (
-		<Container maxWidth="lg" sx={{ marginY: 5 }}>
+		<Container
+			maxWidth="lg"
+			sx={{ marginY: 5 }}>
 			<Header
 				headline="Soft Sourdough Dinner Rolls Recipe"
 				subheadline="Soft sourdough dinner rolls are everything you ever dreamed of! These amazing, pull-apart dinner rolls are fluffy, buttery, and so easy to make."
@@ -51,7 +53,9 @@ function App() {
 				display="flex"
 				alignItems="flex-start"
 				component="section">
-				<Grid item md={8}>
+				<Grid
+					item
+					md={8}>
 					<Box
 						sx={{
 							display: 'flex',
@@ -101,23 +105,36 @@ function App() {
 							servings={servings}
 						/>
 					</Box>
-					<Instructions readyTime={readyTime} endTime={dateTime} />
+					<Instructions
+						readyTime={readyTime}
+						endTime={dateTime}
+						servings={servings}
+					/>
 				</Grid>
 				<Grid
 					item
 					md={4}
 					sx={{ position: 'sticky', top: '5%' }}
 					component="aside">
-					<Paper variant="elevation" elevation={6} sx={{ padding: '2rem' }}>
+					<Paper
+						variant="elevation"
+						elevation={6}
+						sx={{ padding: '2rem' }}>
 						<Box className="equipment">
-							<Typography variant="h4" component="h2">
+							<Typography
+								variant="h4"
+								component="h2">
 								Equipment
 							</Typography>
-							<Typography variant="body1" paragraph={true}>
+							<Typography
+								variant="body1"
+								paragraph={true}>
 								9" x 13" glass baking dish
 							</Typography>
 						</Box>
-						<Box className="ingredients" component="section">
+						<Box
+							className="ingredients"
+							component="section">
 							<Ingredients servings={servings} />
 						</Box>
 					</Paper>

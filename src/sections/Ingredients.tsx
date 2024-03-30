@@ -69,54 +69,54 @@ export default function Ingredients({ servings }: { servings: number }) {
 			doughIngredients: [
 				{
 					name: 'butter',
-					quantity: (28 / 12) * servings,
+					quantity: Math.round((28 / 12) * servings),
 					unit: 'g',
 				},
 				{
 					name: 'milk',
-					quantity: (240 / 12) * servings,
+					quantity: Math.round((240 / 12) * servings),
 					unit: 'g',
 				},
 				{
 					name: 'sugar',
-					quantity: (44 / 12) * servings,
+					quantity: Math.round((44 / 12) * servings),
 					unit: 'g',
 				},
 				{
 					name: 'salt',
-					quantity: (5 / 12) * servings,
+					quantity: Math.round((5 / 12) * servings),
 					unit: 'g',
 				},
 				{
 					name: 'active sourdough starter',
-					quantity: (100 / 12) * servings,
+					quantity: Math.round((100 / 12) * servings),
 					unit: 'g',
 				},
 				{
 					name: 'bread flour',
-					quantity: (375 / 12) * servings,
+					quantity: Math.round((375 / 12) * servings),
 					unit: 'g',
 				},
 				{
 					name: 'melted butter (for brushing the top of the rolls after baking)',
-					quantity: (1 / 12) * servings,
+					quantity: Math.round((1 / 12) * servings),
 					unit: 'tablespoon',
 				},
 			],
 			starterIngredients: [
 				{
 					name: 'sourdough starter',
-					quantity: 15,
+					quantity: Math.round((15 / 12) * servings),
 					unit: 'g',
 				},
 				{
 					name: 'all-purpose flour',
-					quantity: 50,
+					quantity: Math.round((50 / 12) * servings),
 					unit: 'g',
 				},
 				{
 					name: 'water',
-					quantity: 50,
+					quantity: Math.round((50 / 12) * servings),
 					unit: 'g',
 				},
 			],
@@ -124,8 +124,11 @@ export default function Ingredients({ servings }: { servings: number }) {
 	}, [servings]);
 	return (
 		<>
-			<Typography variant="h4" component="h2">
-				Ingredients to make 100 G of active starter
+			<Typography
+				variant="h4"
+				component="h2">
+				Ingredients to make {`${Math.round((100 / 12) * servings)}`}g of active
+				starter
 			</Typography>
 			<ul className="starter-ingredients">
 				{ingredients.starterIngredients.map(
@@ -140,7 +143,9 @@ export default function Ingredients({ servings }: { servings: number }) {
 					),
 				)}
 			</ul>
-			<Typography variant="h4" component="h2">
+			<Typography
+				variant="h4"
+				component="h2">
 				Dough Ingredients
 			</Typography>
 			<ul className="dough-ingredients">

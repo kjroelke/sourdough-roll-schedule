@@ -8,6 +8,10 @@ Because sourdough is hard enough to deal with. You shouldn't have to manually ch
 
 ## Changelog
 
+### v1.0.1
+
+- Fix timing issues and add extra reactivity logic. Also, round numbers so there aren't huge floating-point values mucking up the ingredients list.
+
 ### v1.0.0
 
 Init!
